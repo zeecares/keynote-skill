@@ -63,15 +63,28 @@ slide per page, so the HTML alone is already presentable.
 2. Plan the slide list against the rules: promise early, one idea per slide,
    contributions last. Draft headlines that carry each slide alone.
 3. Write the deck HTML from `templates/deck.html`.
-4. Lint it:
+4. Lint it, two passes - text rules, then rendered geometry:
 
    ```bash
    python3 scripts/validate_deck.py deck.html --strict
+   python3 scripts/audit_geometry.py deck.html --strict
    ```
 
-   Fix every ERROR; justify every WARN you keep.
-5. Preview the HTML in a browser and LOOK at every slide. Fix overflow,
-   orphaned words, crowded slides. Re-lint.
+   `validate_deck.py` reads the HTML as text (word counts, literal inline
+   font-size, bullet nesting). It cannot see what actually renders.
+   `audit_geometry.py` renders every slide in a real browser and checks
+   computed layout: overlapping elements, content overflowing past the
+   footer, and text whose COMPUTED size (after class rules and inheritance,
+   not just inline style) is below the legibility floor. A slide can pass
+   `validate_deck.py` and still render with a callout drawn on top of a
+   footnote, or a card body that inherited a font-size meant for a shorter
+   context - only a rendered check catches that. Fix every ERROR; justify
+   every WARN you keep.
+5. Preview the HTML in a browser and LOOK at every slide yourself, even
+   after both linters pass - they check geometry and word counts, not
+   whether the content is actually true, honest, or well-argued. Fix
+   overflow, orphaned words, crowded slides, and anything that reads wrong.
+   Re-lint after every fix.
 6. Export (below), then open the exported file and inspect it too - the
    deliverable is the export, not the HTML.
 
@@ -103,6 +116,8 @@ placement, clutter, font floor. Propose the rewrite as HTML, then export.
 
 - `references/winston-rules.md` - every rule with its transcript citation
 - `templates/deck.html` - annotated starting template
-- `scripts/validate_deck.py` - the Winston linter (stdlib only)
+- `scripts/validate_deck.py` - the Winston linter, text-based (stdlib only)
+- `scripts/audit_geometry.py` - rendered-layout linter: overlap, footer
+  overflow, computed small text (needs playwright)
 - `scripts/html_to_pptx.py` - HTML -> PPTX exporter (needs python-pptx)
 - `examples/winston-rules-deck.html` - the method presented in its own format
