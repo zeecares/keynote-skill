@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck title</title>
+<!--
+  WINSTON-STYLE DECK - AUTHORING CONTRACT
+  =======================================
+  One <section class="slide"> per slide. First slide: class "slide-title".
+  Content slides: exactly one <h2> headline, then a SMALL amount of body.
+  Speaker notes go in <aside class="notes"> (never shown on the slide).
+
+  The rules baked into this template come from Patrick Winston's MIT talk
+  "How to Speak" (see references/winston-rules.md):
+    - slides are condiments, not the main event: few words, big type
+    - no background junk, no logos, no decorative title bars
+    - never read the slide; if the audience can read it faster than you can
+      say it, cut words
+    - final slide = CONTRIBUTIONS; collaborators go on the FIRST slide
+    - open with an empowerment promise, not a joke
+-->
+<style>
+  :root { --ink: #1a1a1a; --muted: #555; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+         background: #888; color: var(--ink); }
+  .slide { width: 1280px; height: 720px; margin: 24px auto; background: #fff;
+           padding: 48px 72px; position: relative; overflow: hidden;
+           display: flex; flex-direction: column; page-break-after: always; }
+  .slide h2 { font-size: 44px; line-height: 1.15; margin-bottom: 28px; }
+  .slide p, .slide li { font-size: 30px; line-height: 1.35; }
+  .slide ul { padding-left: 1.2em; }
+  .slide li { margin-bottom: 14px; }
+  .slide li li { font-size: 26px; }
+  .slide blockquote { font-style: italic; color: var(--muted);
+                      font-size: 30px; margin: 24px 0; }
+  .slide img { max-width: 100%; max-height: 460px; display: block; margin: 12px auto; }
+  .slide figcaption { font-size: 20px; color: var(--muted); text-align: center; }
+  .slide-title { justify-content: center; text-align: center; }
+  .slide-title h1 { font-size: 60px; line-height: 1.1; margin-bottom: 20px; }
+  .slide-title .subtitle { font-size: 32px; color: var(--muted); }
+  .slide-title .speaker { font-size: 24px; color: var(--muted); margin-top: 28px; }
+  .notes { display: none; }
+  @media print {
+    body { background: #fff; }
+    .slide { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. TITLE: who you are + collaborators belong HERE, not at the end -->
+<section class="slide slide-title">
+  <h1>Talk title</h1>
+  <p class="subtitle">One-line framing</p>
+  <p class="speaker">Your name &middot; collaborators &middot; occasion</p>
+  <aside class="notes">Empowerment promise goes in the SPOKEN opening:
+  what will the audience know at the end that they don't know now?</aside>
+</section>
+
+<!-- 2. PROMISE / why this matters -->
+<section class="slide">
+  <h2>By the end, you will ...</h2>
+  <p>State the promise in one sentence.</p>
+  <aside class="notes">Do not open with a joke - the audience is still
+  adjusting to your voice. Start with the promise.</aside>
+</section>
+
+<!-- 3..n-1. CONTENT: one idea per slide, few words, big type -->
+<section class="slide">
+  <h2>Headline that carries the slide</h2>
+  <ul>
+    <li>As few words as possible</li>
+    <li>Say the rest out loud</li>
+  </ul>
+  <aside class="notes">Cycle on big ideas: say it, say it again, say it a
+  third time. About 20% of the audience is fogged out at any moment.</aside>
+</section>
+
+<!-- FINAL. CONTRIBUTIONS - stays on screen during Q&A. Never "Thank you",
+     never "Questions?", never a bare "Conclusions". -->
+<section class="slide">
+  <h2>Contributions</h2>
+  <ul>
+    <li>What you did, item one</li>
+    <li>What you did, item two</li>
+  </ul>
+  <aside class="notes">End with a salute to the audience or a joke - by now
+  they have adjusted to your voice. Do not say "thank you for listening".</aside>
+</section>
+
+</body>
+</html>
